@@ -1,20 +1,39 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from "tailwindcss";
+import plugin from "tailwindcss/plugin";
 
 const config: Config = {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      colors: {
+        background: "var(--color-bg)",
+        card: "var(--color-card)",
+        text: "var(--color-text)",
+        title: "var(--color-title)",
+        profile: "var(--color-profile)",
+        divider: "var(--color-divider)",
+        status: {
+          red: "var(--color-status-red)",
+          blue: "var(--color-status-blue)",
+          green: "var(--color-status-green)",
+          yellow: "var(--color-status-yellow)",
+        },
       },
     },
   },
-  plugins: [],
-}
-export default config
+  plugins: [
+    plugin(function({ addComponents }) {
+      addComponents({
+        '.non-selectable': {
+          'userSelect': 'none',
+          'pointerEvents': 'none'
+        }
+      })
+    })
+  ],
+};
+
+export default config;

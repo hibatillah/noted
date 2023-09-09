@@ -3,25 +3,47 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --color-bg: #f3f3f3;
+  --color-card: #fff;
+  --color-text: #545454;
+  --color-title: #202123;
+  --color-profile: #b3d6fc;
+  --color-divider: #e5e5e5;
+  --status-red: #d95c52;
+  --status-blue: #3f7ee8;
+  --status-green: #66be67;
+  --status-yellow: #f1c423;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --color-bg: #202123;
+    --color-card: #2c2c2e;
+    --color-text: #c4c4c6;
+    --color-title: #fff;
+    --color-profile: #b3d6fc;
+    --color-divider: #363638;
+    --status-red: #dd5f58;
+    --status-blue: #3f7ee8;
+    --status-green: #66be67;
+    --status-yellow: #f1c423;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer base {
+  body { @apply bg-background; }
+  h1, h2, h3 { @apply text-title; }
+  h1 {
+    @apply text-xl font-bold tracking-wide;
+  }
+  h2 { @apply text-lg font-semibold; }
+  h3 { @apply text-base font-medium; }
+  p { @apply text-sm text-text; }
+  a { @apply hover:underline hover:underline-offset-2; }
+}
+
+@layer components {
+  .card {
+    @apply px-4 py-3 bg-card rounded-lg;
+  }
 }
