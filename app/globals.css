@@ -9,41 +9,47 @@
   --color-title: #202123;
   --color-profile: #b3d6fc;
   --color-divider: #e5e5e5;
-  --status-red: #d95c52;
-  --status-blue: #3f7ee8;
-  --status-green: #66be67;
-  --status-yellow: #f1c423;
+  --color-red: theme(colors.rose.500);
+  --color-blue: theme(colors.blue.500);
+  --color-green: theme(colors.green.400);
+  --color-yellow: theme(colors.yellow.300);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg: #202123;
-    --color-card: #2c2c2e;
-    --color-text: #c4c4c6;
-    --color-title: #fff;
-    --color-profile: #b3d6fc;
-    --color-divider: #363638;
-    --status-red: #dd5f58;
-    --status-blue: #3f7ee8;
-    --status-green: #66be67;
-    --status-yellow: #f1c423;
-  }
+:root.dark {
+  --color-bg: #202123;
+  --color-card: #2c2c2e;
+  --color-text: #c4c4c6;
+  --color-title: #fff;
+  --color-profile: #b3d6fc;
+  --color-divider: #363638;
+  --color-red: theme(colors.rose.400);
+  --color-blue: theme(colors.blue.400);
+  --color-green: theme(colors.green.300);
+  --color-yellow: theme(colors.yellow.200);
 }
 
 @layer base {
-  body { @apply bg-background; }
-  h1, h2, h3 { @apply text-title; }
+  body {
+    @apply bg-background;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply text-title;
+  }
   h1 {
     @apply text-xl font-bold tracking-wide;
   }
-  h2 { @apply text-lg font-semibold; }
-  h3 { @apply text-base font-medium; }
-  p { @apply text-sm text-text; }
-  a { @apply hover:underline hover:underline-offset-2; }
-}
-
-@layer components {
-  .card {
-    @apply px-4 py-3 bg-card rounded-lg;
+  h2 {
+    @apply text-lg font-semibold;
+  }
+  h3 {
+    @apply text-base font-medium;
+  }
+  p {
+    @apply text-sm text-text;
+  }
+  a.link {
+    @apply hover:underline hover:underline-offset-2;
   }
 }

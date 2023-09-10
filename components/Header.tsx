@@ -1,4 +1,4 @@
-import { DarkToggle } from "@components";
+import { Theme } from "@components";
 import { User } from "@types";
 import { IoIosArrowBack } from "react-icons/io";
 
@@ -26,7 +26,7 @@ const Header = ({
       <a href="/" className="ms-2 me-auto">
         <h1>Noted</h1>
       </a>
-      <DarkToggle />
+      <Theme user={user} />
       {!isProfile ? (
         <div className="w-8 aspect-square ms-3 p-1 grid place-items-center bg-profile rounded-full text-xs text-gray-950 font-bold tracking-wider select-none cursor-pointer">
           <span>{initialName}</span>
