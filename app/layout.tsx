@@ -1,6 +1,8 @@
-import { Footer, Header } from "@components";
+"use client"
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Footer, Header } from "@components";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -30,6 +32,6 @@ const Profile = {
   name: "M Hibatillah Hasanin",
   email: "hibatillahhabib@gmail.com",
   profile: "student",
-  login: true,
+  login: false,
   darkTheme: false,
 };
