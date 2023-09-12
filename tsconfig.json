@@ -20,10 +20,15 @@
     ],
     "paths": {
       "@components": ["./components/index"],
-      "@util": ["./util/index"],
-      "@types": ["./types/index"]
+      "@utils/*": ["./utils/*"],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "auth/config.js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "auth/config.js"
+  ],
   "exclude": ["node_modules"]
 }

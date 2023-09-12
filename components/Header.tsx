@@ -1,9 +1,9 @@
 "use client";
 
+import { Theme } from "@components";
+import { User } from "@utils/types";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { Theme } from "@components";
-import { User } from "@types";
 import { IoIosArrowBack } from "react-icons/io";
 
 const Header = ({ user }: { user: User }) => {
@@ -20,7 +20,7 @@ const Header = ({ user }: { user: User }) => {
   const backPage = () => {
     const pagePath = pathname.split("/");
     return pagePath.length === 2 ? "/" : pagePath.slice(0, -1).join("/");
-  }
+  };
 
   return (
     <header className="flex items-center justify-between">

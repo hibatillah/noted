@@ -1,12 +1,14 @@
 "use client";
 
+import { User } from "@utils/types";
 import React from "react";
-import { User } from "@types";
 import { BsFillSunFill } from "react-icons/bs";
 import { FaMoon } from "react-icons/fa";
 
 const Theme = ({ user }: { user: User }) => {
-  const isSystemDarkTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const isSystemDarkTheme = window.matchMedia(
+    "(prefers-color-scheme: dark)"
+  ).matches;
   const [isDarkTheme, setIsDarkTheme] = React.useState(isSystemDarkTheme);
 
   const applyDarkTheme = () => {
@@ -19,11 +21,13 @@ const Theme = ({ user }: { user: User }) => {
     setIsDarkTheme(!isDarkTheme);
   };
 
-  // initial theme
+  // set initial theme
   React.useEffect(() => {
     user.login
-      ? user.darkTheme ? applyDarkTheme() : setIsDarkTheme(false)
-      : isSystemDarkTheme ? applyDarkTheme() : setIsDarkTheme(false);
+      ? user.darkTheme
+        ? applyDarkTheme() : setIsDarkTheme(false)
+      : isSystemDarkTheme
+        ? applyDarkTheme() : setIsDarkTheme(false);
   }, [user, isSystemDarkTheme]);
 
   return (

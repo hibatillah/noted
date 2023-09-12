@@ -1,10 +1,11 @@
 ## Noted - Simple Note App
 
-Make simple notes, ez use wherever & whenever you are, with Noted.<br>[Visit Noted](https://mynoted.netlify.app/)
+Make simple notes, ez use wherever & whenever you are, with Noted.<br>
+<!-- [Visit Noted](https://mynoted.netlify.app/) -->
 
 ### Features
 
-Provides note `search`, `star`, `archive` and `trash` view of recently deleted notes. Notes `folders` and `labels`, as well as note `display options`. Provide `profile` and `google login`.
+Provides note `search`, `star`, `archive` and `trash` of recently deleted notes. Notes `folders` and `labels`, as well as note `display options`. Provide `profile` and `google login`.
 
 ### Tech Stacks
 - Next v13.4.19
@@ -12,9 +13,8 @@ Provides note `search`, `star`, `archive` and `trash` view of recently deleted n
 - Tailwindcss v3.3.3
 - Firebase v10.3.1
 
----
 
-### Run Local Project
+## Run Project Locally
 
 Clone this project
 ```bash
