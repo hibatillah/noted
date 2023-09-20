@@ -22,10 +22,6 @@
   --color-title: #fff;
   --color-profile: #b3d6fc;
   --color-divider: #363638;
-  --color-red: theme(colors.rose.400);
-  --color-blue: theme(colors.blue.400);
-  --color-green: theme(colors.green.300);
-  --color-yellow: theme(colors.yellow.200);
 }
 
 @layer base {
@@ -41,7 +37,7 @@
     @apply text-xl font-bold tracking-wide;
   }
   h2 {
-    @apply text-lg font-semibold;
+    @apply text-lg;
   }
   h3 {
     @apply text-base font-medium;
@@ -51,5 +47,14 @@
   }
   a.link {
     @apply hover:underline hover:underline-offset-2;
+  }
+  input {
+    @apply bg-inherit focus:outline-none
+  }
+  input::-webkit-search-cancel-button {
+    @apply appearance-none;
+  }
+  #search-bar:has(input:focus) {
+    @apply ring-1 ring-text
   }
 }
