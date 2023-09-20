@@ -27,7 +27,7 @@ const Theme = ({ user }: { user: User }) => {
       ? user.darkTheme
         ? applyDarkTheme() : setIsDarkTheme(false)
       : isSystemDarkTheme
-        ? applyDarkTheme() : setIsDarkTheme(false);
+        ? applyDarkTheme() : setIsDarkTheme(false)
   }, [user, isSystemDarkTheme]);
 
   return (

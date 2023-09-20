@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
+import { Footer, Header } from "@components";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { Footer, Header } from "@components";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -21,7 +21,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={(inter.className, "px-5 py-6")}>
         <Header user={Profile} />
-        {children}
+        <main className="min-h-[calc(100dvh-104px)] py-5">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

@@ -1,8 +1,12 @@
 import React from 'react'
 
 const Footer = () => {
+  const year = new Date().getFullYear()
+
   return (
-    <div>Footer</div>
+    <footer className='text-center text-text non-selectable'>
+      © {year} noted
+    </footer>
   )
 }
 

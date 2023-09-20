@@ -1,13 +1,11 @@
 "use client";
 
-import { Theme } from "@components";
+import { Theme, BackButton } from "@components";
 import { User } from "@utils/types";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
-import { IoIosArrowBack } from "react-icons/io";
+import { usePathname } from "next/navigation";
 
 const Header = ({ user }: { user: User }) => {
-  const router = useRouter();
   const pathname = usePathname();
 
   const initialName = user.name
@@ -17,20 +15,11 @@ const Header = ({ user }: { user: User }) => {
 
   const hideProfile = () => pathname === "/profile" || pathname === "/auth";
 
-  const backPage = () => {
-    const pagePath = pathname.split("/");
-    return pagePath.length === 2 ? "/" : pagePath.slice(0, -1).join("/");
-  };
-
   return (
     <header className="flex items-center justify-between">
       <div className="flex items-center gap-3">
         {pathname !== "/" ? (
-          <button
-            onClick={() => router.push(backPage())}
-            className="w-8 aspect-square grid place-items-center text-title select-none">
-            <IoIosArrowBack size={20} />
-          </button>
+          <BackButton />
         ) : null}
         <a href="/">
           <h1>Noted</h1>
