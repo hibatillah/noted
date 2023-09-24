@@ -37,7 +37,7 @@
     @apply text-xl font-bold tracking-wide;
   }
   h2 {
-    @apply text-lg;
+    @apply text-lg font-semibold;
   }
   h3 {
     @apply text-base font-medium;
@@ -49,12 +49,24 @@
     @apply hover:underline hover:underline-offset-2;
   }
   input {
-    @apply bg-inherit focus:outline-none
+    @apply bg-inherit focus:outline-none;
   }
   input::-webkit-search-cancel-button {
     @apply appearance-none;
   }
+}
+
+@layer components {
+  .btn {
+    @apply flex justify-center items-center gap-3 w-full px-4 py-3 rounded-md bg-card text-title active:ring-1 active:ring-offset-2 active:ring-offset-background;
+  }
+  .form-input {
+    @apply w-full px-4 py-2.5 rounded-md
+  }
+  label:has(input:focus) {
+    @apply ring-1 ring-status-blue
+  }
   #search-bar:has(input:focus) {
-    @apply ring-1 ring-text
+    @apply ring-1 ring-text;
   }
 }

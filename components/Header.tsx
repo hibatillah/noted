@@ -13,14 +13,12 @@ const Header = ({ user }: { user: User }) => {
     .slice(0, 2)
     .map((word: string) => word.charAt(0));
 
-  const hideProfile = () => pathname === "/profile" || pathname === "/auth";
+  const hideProfile = () => pathname.includes("/auth") || pathname === "/profile";
 
   return (
     <header className="flex items-center justify-between">
       <div className="flex items-center gap-3">
-        {pathname !== "/" ? (
-          <BackButton />
-        ) : null}
+        {pathname === "/" || pathname === "/auth" ? null : <BackButton />}
         <a href="/">
           <h1>Noted</h1>
         </a>
