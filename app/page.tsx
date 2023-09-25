@@ -13,11 +13,11 @@ export default function Home() {
   return (
     <div className="space-y-5">
       <SearchBar />
-      <ul className="card py-1 divide-y divide-y-divider">
+      <section className="card py-1 divide-y divide-y-divider">
         {mainMenu.map((item, index) => (
           <Menu data={item} key={index} />
         ))}
-      </ul>
+      </section>
       <div id="folders">
         <div className="mb-2 flex justify-between items-center text-title">
           <h2>Folders</h2>
@@ -25,13 +25,13 @@ export default function Home() {
             <AiOutlinePlus size={18} />
           </div>
         </div>
-        <ul className="card py-1 divide-y divide-y-divider">
+        <section className="card py-1 divide-y divide-y-divider">
           {folders.length !== 0 ? (
             folders.map((item, index) => <Menu data={item} key={index} />)
           ) : (
             <Empty title="folders" />
           )}
-        </ul>
+        </section>
       </div>
       <div id="labels">
         <div className="mb-2 flex justify-between items-center text-title">
@@ -40,13 +40,13 @@ export default function Home() {
             <AiOutlinePlus size={18} />
           </div>
         </div>
-        <ul className="card py-1 divide-y divide-y-divider">
+        <section className="card py-1 divide-y divide-y-divider">
           {label.length !== 0 ? (
             label.map((item, index) => <Menu data={item} key={index} />)
           ) : (
             <Empty title="labels" />
           )}
-        </ul>
+        </section>
       </div>
     </div>
   );
@@ -55,13 +55,13 @@ export default function Home() {
 const Menu = ({ data, key }: { data: Menu; key: number }) => {
   return (
     <Link href={data.path} key={key}>
-      <li className="flex items-center gap-4 py-2.5">
+      <div className="flex items-center gap-4 py-2.5">
         <span className={data.color}>{data.icon}</span>
         <div className="text-title">
           {data.title}
           <span className="ms-2 text-sm text-text">{data.amount}</span>
         </div>
-      </li>
+      </div>
     </Link>
   );
 };
