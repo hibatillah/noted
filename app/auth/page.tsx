@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@components/form";
 import { useRouter } from "next/navigation";
 import { FcGoogle } from "react-icons/fc";
 import { MdEmail } from "react-icons/md";
@@ -9,14 +10,14 @@ const Auth = () => {
 
   return (
     <div className="block space-y-4">
-      <button className="btn">
+      <Button>
         <FcGoogle size={22} />
         Continue with Google
-      </button>
-      <button onClick={() => router.push("/auth/email")} className="btn">
+      </Button>
+      <Button onClick={() => router.push("/auth/email")}>
         <MdEmail size={22} />
         Continue with Email
-      </button>
+      </Button>
     </div>
   );
 };

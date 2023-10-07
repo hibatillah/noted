@@ -1,0 +1,57 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model users {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  username  String   @unique
+  password  String?
+  profile   String?
+  createdAt DateTime @default(now())
+  notes     notes[]
+  folders   folders[]
+  labels    labels[]
+}
+
+model notes {
+  id        String   @id @default(uuid())
+  title     String
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  author    users    @relation(fields: [authorId], references: [id])
+  authorId  String
+  starred   Boolean  @default(false)
+  archived  Boolean  @default(false)
+  trash     Boolean  @default(false)
+  folders   folders[]
+  labels    labels[]
+}
+
+model folders {
+  id        String   @id @default(uuid())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  author    users    @relation(fields: [authorId], references: [id])
+  authorId  String
+  notes     notes[]
+}
+
+model labels {
+  id        String   @id @default(uuid())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  author    users    @relation(fields: [authorId], references: [id])
+  authorId  String
+  notes     notes[]
+}
+
+

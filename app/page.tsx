@@ -1,5 +1,4 @@
 import { SearchBar } from "@components";
-import { Menu } from "@utils/types";
 import Link from "next/link";
 import { AiOutlinePlus } from "react-icons/ai";
 import {
@@ -8,6 +7,7 @@ import {
   HiOutlineStar,
   HiOutlineTrash,
 } from "react-icons/hi";
+import { Menu } from "@lib/types";
 
 export default function Home() {
   return (

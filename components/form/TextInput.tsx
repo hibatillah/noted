@@ -1,32 +1,26 @@
-import { Input } from "@utils/types";
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  icon?: React.ReactNode;
+  color?: string;
+  error?: string | null;
+}
 
-const TextInput = ({
-  type = "text",
+const TextInput: React.FC<InputProps> = ({
   id,
-  name,
-  placeholder,
-  required = false,
-  color = "text-title",
-  value,
   icon,
-  inputMode,
+  error,
+  color = "text-title",
   ...rest
-}: Input) => {
+}) => {
   return (
-    <label htmlFor={id} className="px-4 py-3 bg-card rounded-md flex items-center gap-4 text-text cursor-text">
-      <span className={color}>{icon}</span>
-      <input
-        type={type}
-        name={name}
-        id={id}
-        placeholder={placeholder}
-        required={required}
-        value={value}
-        inputMode={inputMode}
-        className="text-title"
-        {...rest}
-      />
-    </label>
+    <div className="flex flex-col gap-1.5">
+      <label
+        htmlFor={id}
+        className="px-4 py-3 bg-card rounded-md flex items-center gap-4 text-text cursor-text">
+        <span className={color}>{icon}</span>
+        <input id={id} className="w-full text-title" {...rest} />
+      </label>
+      {error && <span className="ms-2 text-status-red">{error}</span>}
+    </div>
   );
 };
 

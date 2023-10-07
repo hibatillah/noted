@@ -28,12 +28,6 @@ const config: Config = {
   plugins: [
     plugin(function ({ addComponents, theme }) {
       addComponents({
-        ".card": {
-          paddingInline: theme('spacing.4'),
-          paddingBlock: theme('spacing.3'),
-          backgroundColor: theme('colors.card'),
-          borderRadius: theme('borderRadius.lg'),
-        },
         ".non-selectable": {
           userSelect: "none",
           pointerEvents: "none",

@@ -15,12 +15,11 @@
   --color-yellow: theme(colors.yellow.300);
 }
 
-:root.dark {
+:root[data-theme="dark"] {
   --color-bg: #202123;
   --color-card: #2c2c2e;
   --color-text: #c4c4c6;
   --color-title: #fff;
-  --color-profile: #b3d6fc;
   --color-divider: #363638;
 }
 
@@ -57,6 +56,9 @@
 }
 
 @layer components {
+  .card {
+    @apply px-4 py-2.5 rounded-lg bg-card
+  }
   .btn {
     @apply flex justify-center items-center gap-3 w-full px-4 py-3 rounded-md bg-card text-title active:ring-1 active:ring-offset-2 active:ring-offset-background;
   }
