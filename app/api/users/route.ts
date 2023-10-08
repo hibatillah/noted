@@ -4,55 +4,61 @@ import { NextRequest, NextResponse } from "next/server";
 const prisma = new PrismaClient();
 
 export const GET = async () => {
-  const users = await prisma.users.findMany({});
-  return NextResponse.json({ users });
+  try {
+    const users = await prisma.users.findMany({});
+    return NextResponse.json({ users });
+  } catch (err: any) {
+    return NextResponse.json({ message: err.message }, { status: 500 });
+  }
 };
 
 export const POST = async (req: NextRequest) => {
-  const { email, username, password, profile } = await req.json();
+  const data = await req.json();
 
-  const users = await prisma.users.create({
-    data: {
-      email,
-      username,
-      password,
-      profile,
-    },
-  });
-
-  return NextResponse.json({ users });
+  try {
+    const users = await prisma.users.create({
+      data: data,
+    });
+    return NextResponse.json({ users });
+  } catch (err: any) {
+    return NextResponse.json({ message: err.message }, { status: 500 });
+  }
 };
 
 export const PUT = async (req: NextRequest) => {
-  const { id, email, username, password, profile } = await req.json();
+  const url = req.nextUrl.pathname;
+  const id = url.split("/")[-1];
+  const data = await req.json();
 
-  const users = await prisma.users.update({
-    where: {
-      id
-    },
-    data: {
-      email,
-      username,
-      password,
-      profile,
-    },
-  });
-
-  return NextResponse.json({ users });
+  try {
+    const users = await prisma.users.update({
+      where: {
+        id: id,
+      },
+      data: data,
+    });
+    return NextResponse.json({ users });
+  } catch (err: any) {
+    return NextResponse.json({ message: err.message }, { status: 500 });
+  }
 };
 
 export const DELETE = async (req: NextRequest) => {
   const url = req.nextUrl.pathname;
   const id = url.split("/")[-1];
 
-  const users = await prisma.users.delete({
-    where: {
-      id: id,
-    },
-  });
+  try {
+    const users = await prisma.users.delete({
+      where: {
+        id: id,
+      },
+    });
 
-  if (!users)
-    return NextResponse.json({ message: "User not found" }, { status: 404 });
-
-  return NextResponse.json({ users });
+    if (!users) {
+      return NextResponse.json({ message: "User not found" }, { status: 404 });
+    }
+    return NextResponse.json({ users });
+  } catch (err: any) {
+    return NextResponse.json({ message: err.message }, { status: 500 });
+  }
 };

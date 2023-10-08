@@ -1,5 +1,6 @@
 import { initializeApp, getApps } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: process.env.API_KEY,
@@ -18,11 +19,11 @@ if (!getApps().length) {
 
 export const FirebaseAuth = getAuth()
 
-export const SignUp = async(email, password) => {
+export const SignUp = async(email: string, password: string) => {
   await createUserWithEmailAndPassword(FirebaseAuth, email, password)
 }
 
-export const SignIn = async(email, password) => {
+export const SignIn = async(email: string, password: string) => {
   await signInWithEmailAndPassword(FirebaseAuth, email, password)
 }
 

@@ -18,7 +18,7 @@ Make simple notes, ez use and integrated, with Noted.<br>
 
 ### Tech Stacks
 - [Next](https://nextjs.org) v13.4.19
-- [React](httpps://react.dev) v18.2.0
+- [React](https://react.dev) v18.2.0
 - [Tailwindcss](https://tailwindcss.com) v3.3.3
 - [Prisma](https://prisma.io) v5.3.1
 - [Firebase](https://firebase.google.com) v10.3.1
