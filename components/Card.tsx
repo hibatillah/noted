@@ -18,9 +18,7 @@ export default function NoteCard({ data }: { data: Note }) {
           <h3 className="line-clamp-1">{title}</h3>
           {label && (
             <div
-              className={`w-2 aspect-square rounded-full ${
-                labelColor[label?.color]
-              }`}
+              className={`w-2 aspect-square rounded-full ${labelColor[label?.color]}`}
             />
           )}
         </div>

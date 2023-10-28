@@ -12,7 +12,7 @@ Make simple notes, ez use and integrated, with Noted.<br>
 - [ ] Starred notes
 - [ ] Archive notes
 - [ ] Trash notes
-- [ ] Layout options
+- [X] Layout options
 - [ ] Account
 - [ ] Google login
 
@@ -21,16 +21,4 @@ Make simple notes, ez use and integrated, with Noted.<br>
 - [React](https://react.dev) v18.2.0
 - [Tailwindcss](https://tailwindcss.com) v3.3.3
 - [Prisma](https://prisma.io) v5.3.1
-- [Firebase](https://firebase.google.com) v10.3.1
 - [Neon](https://neon.tech) for PostgreSQL
-
-
-### Clone project
-
-```bash
-git clone https://github.com/hibatillah/noted
----
-npm install
----
-npm run dev
-```
