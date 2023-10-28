@@ -10,6 +10,7 @@ import {
   HiOutlineLogout,
   HiOutlineMail,
   HiOutlineTrash,
+  HiPencil,
 } from "react-icons/hi";
 
 const ProfileSection = () => {
@@ -18,7 +19,7 @@ const ProfileSection = () => {
   const initialName = getInitial(user.username);
 
   const updateProfile = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
+    event.preventDefault();
 
     const req = {
       username: event.currentTarget.username.value,
@@ -26,9 +27,9 @@ const ProfileSection = () => {
       profile: event.currentTarget.profile.value,
     };
 
-    await fetch('/api/users', {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
+    await fetch("/api/users", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         username: req.username,
         email: req.email,
@@ -36,21 +37,24 @@ const ProfileSection = () => {
       }),
     })
       .then((res) => {
-        console.log(res)
-        setStatus(() => "success")
+        console.log(res);
+        setStatus(() => "success");
       })
       .catch((err) => {
-        console.log(err)
-        setStatus(() => "error")
+        console.log(err);
+        setStatus(() => "error");
       })
-      .finally(() => setLoading(false))
-  }
+      .finally(() => setLoading(false));
+  };
 
   return (
     <>
       <h2>Profile</h2>
-      <div className="card w-[72px] aspect-square rounded-full grid place-items-center text-2xl font-semibold text-gray-950 bg-profile">
+      <div className="card relative w-[72px] aspect-square mx-auto rounded-full grid place-items-center text-2xl font-semibold text-gray-950 bg-profile select-none">
         {initialName}
+        <div className="absolute right-0 bottom-0 w-5 aspect-square rounded-full bg-card grid place-items-center text-title border border-white/20 cursor-pointer">
+            <HiPencil size={12} />
+        </div>
       </div>
       <form onSubmit={updateProfile} className="space-y-4">
         <TextInput
@@ -84,7 +88,7 @@ const ProfileSection = () => {
           className="bg-status-blue text-white tracking-wide"
           disabled={loading}
           type="submit">
-          {loading ? "Updating..." : "Update Data"}
+          {loading ? "Updating..." : "Update Profile"}
         </Button>
       </form>
     </>

@@ -15,7 +15,7 @@ const TextInput: React.FC<InputProps> = ({
     <div className="flex flex-col gap-1.5">
       <label
         htmlFor={id}
-        className="px-4 py-3 bg-card rounded-md flex items-center gap-4 text-text cursor-text">
+        className="px-4 py-2.5 bg-card rounded-lg flex items-center gap-4 text-text cursor-text">
         <span className={color}>{icon}</span>
         <input id={id} className="w-full text-title" {...rest} />
       </label>

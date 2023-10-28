@@ -3,7 +3,7 @@ import { cva, VariantProps } from "class-variance-authority";
 import React from "react";
 
 const ButtonVariants = cva(
-  "w-full flex items-center gap-3 px-4 py-3 rounded-md bg-card text-title font-medium active:ring-2 active:ring-offset-2 active:ring-offset-background disabled:opacity-90",
+  "w-full flex items-center gap-3 px-4 py-2.5 rounded-lg bg-card text-title font-medium active:ring-2 active:ring-offset-2 active:ring-offset-background disabled:opacity-90",
   {
     variants: {
       align: {

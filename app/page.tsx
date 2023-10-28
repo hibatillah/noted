@@ -1,4 +1,4 @@
-import { SearchBar } from "@components";
+import { SearchBar, Empty } from "@components";
 import Link from "next/link";
 import { AiOutlinePlus } from "react-icons/ai";
 import {
@@ -53,24 +53,18 @@ export default function Home() {
 }
 
 const Menu = ({ data, key }: { data: Menu; key: number }) => {
+  const { path, color, icon, title, amount } = data;
+
   return (
-    <Link href={data.path} key={key}>
+    <Link href={path} key={key}>
       <div className="flex items-center gap-4 py-2.5">
-        <span className={data.color}>{data.icon}</span>
+        <span className={color}>{icon}</span>
         <div className="text-title">
-          {data.title}
-          <span className="ms-2 text-sm text-text">{data.amount}</span>
+          {title}
+          <span className="ms-2 text-sm text-text">{amount}</span>
         </div>
       </div>
     </Link>
-  );
-};
-
-const Empty = ({ title }: { title: string }) => {
-  return (
-    <div className="py-4 grid place-items-center text-text">
-      <span>No {title} yet</span>
-    </div>
   );
 };
 

@@ -53,6 +53,13 @@
   input::-webkit-search-cancel-button {
     @apply appearance-none;
   }
+  abbr[title] {
+    text-decoration: unset;
+    cursor: pointer;
+  }
+  *::-webkit-scrollbar {
+    @apply w-0;
+  }
 }
 
 @layer components {
@@ -69,6 +76,6 @@
     @apply ring-1 ring-status-blue
   }
   #search-bar:has(input:focus) {
-    @apply ring-1 ring-text;
+    @apply ring-1 ring-status-blue;
   }
 }
