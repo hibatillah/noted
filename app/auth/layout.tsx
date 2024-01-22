@@ -1,14 +1,13 @@
-export default function AuthLayout({
+import Header from "@/components/Header";
+
+export default function Page({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <div className="h-[686px] flex flex-col justify-center">
-      <h1 className="font-semibold">Sign In</h1>
-      <p className="mt-1.5 mb-5">
-        Take your notes with you wherever you go.
-      </p>
+    <div className="container h-screen flex flex-col">
+      <Header profile={false} />
       {children}
     </div>
   );

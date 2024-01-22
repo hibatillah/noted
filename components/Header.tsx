@@ -1,39 +1,44 @@
-import { BackButton, Theme } from "@components";
-import { swr } from "@lib/req";
-import { getInitial } from "@lib/utils";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+"use client";
+import ToggleThemes from "@/components/ToggleThemes";
+import { Button } from "@/components/ui/button";
+import { usePathname, useRouter } from "next/navigation";
+import { IoIosArrowBack } from "react-icons/io";
 
-const Header = () => {
+export default function Header({
+  profile = true
+}: {
+  profile?: boolean
+}) {
+  const router = useRouter();
   const pathname = usePathname();
-
-  const { data } = swr("/users/1234")
-  console.log(data)
-
-  const initialName = getInitial("M hibatillah Hasanin")
-  const hideProfile = () =>
-    pathname.includes("/auth") || pathname === "/profile";
+  const username = "M. Hibatillah Hasanin";
 
   return (
-    <header className="flex items-center justify-between">
-      <div className="flex items-center gap-3">
-        {pathname === "/" || pathname === "/auth" ? null : <BackButton />}
-        <a href="/">
-          <h1>Noted</h1>
-        </a>
+    <div className="flex justify-between items-center">
+      <div className="flex items-center gap-2">
+        {pathname !== "/" ? (
+          <Button
+            size="icon"
+            variant="ghost"
+            onClick={() => router.back()}
+            className="rounded-full text-white">
+            <IoIosArrowBack size={20} className="-translate-x-0.5" />
+          </Button>
+        ) : null}
+        <h1>Noted</h1>
       </div>
-      <div className="flex items-center gap-3">
-        <Theme />
-        {!hideProfile() ? (
-          <Link href="/profile">
-            <div className="w-8 aspect-square p-1 grid place-items-center bg-profile rounded-full text-xs text-gray-950 font-bold tracking-wider select-none cursor-pointer">
-              <span>{initialName}</span>
-            </div>
-          </Link>
+      <div className="flex items-center gap-2">
+        <ToggleThemes />
+        {profile ? (
+          <Button
+            size="icon"
+            onClick={() => router.push("/profile")}
+            className="rounded-full bg-primary tracking-wide text-white">
+            {username.split(" ")[0].charAt(0).toUpperCase() +
+              username.split(" ")[1].charAt(0).toUpperCase()}
+          </Button>
         ) : null}
       </div>
-    </header>
+    </div>
   );
-};
-
-export default Header;
+}

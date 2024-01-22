@@ -19,9 +19,8 @@
       }
     ],
     "paths": {
-      "@components": ["./components/index"],
-      "@components/*": ["./components/*"],
-      "@lib/*": ["./lib/*"]
+      "@/components/*": ["./components/*"],
+      "@/lib/*": ["./lib/*"],
     }
   },
   "include": [
