@@ -5,9 +5,11 @@ import { usePathname, useRouter } from "next/navigation";
 import { IoIosArrowBack } from "react-icons/io";
 
 export default function Header({
-  profile = true
+  profile = true,
+  back
 }: {
-  profile?: boolean
+  profile?: boolean,
+  back?: string | boolean
 }) {
   const router = useRouter();
   const pathname = usePathname();
@@ -16,12 +18,12 @@ export default function Header({
   return (
     <div className="flex justify-between items-center">
       <div className="flex items-center gap-2">
-        {pathname !== "/" ? (
+        {back ? (
           <Button
             size="icon"
             variant="ghost"
-            onClick={() => router.back()}
-            className="rounded-full text-white">
+            onClick={() => typeof back === 'string' ? router.push(back) : router.back()}
+            className="rounded-full text-title">
             <IoIosArrowBack size={20} className="-translate-x-0.5" />
           </Button>
         ) : null}

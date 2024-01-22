@@ -31,7 +31,7 @@ const config = {
         ring: "hsl(var(--ring))",
         primary: {
           DEFAULT: "var(--primary)",
-          foreground: "var(--foreground)",
+          foreground: "#fff",
         },
         secondary: {
           DEFAULT: "var(--card)",

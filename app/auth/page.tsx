@@ -6,12 +6,14 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { MdEmail } from "react-icons/md";
 import { FcGoogle } from "react-icons/fc";
+import Header from "@/components/Header";
 
 export default function Page() {
   const router = useRouter();
 
   return (
     <>
+      <Header profile={false} back="/" />
       <div className="my-auto">
         <h2>Sign In</h2>
         <p className="mb-5">
