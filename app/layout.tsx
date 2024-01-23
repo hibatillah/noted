@@ -24,8 +24,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const role = true;
-
   return (
     <html lang="en">
       <body className={poppins.className}>

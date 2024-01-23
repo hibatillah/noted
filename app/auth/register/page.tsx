@@ -27,7 +27,17 @@ export default function Page() {
     const confirmPassword = data.get("confirmPassword");
 
     if (password === confirmPassword) {
-      if (email === "habib@gmail.com") {
+      if (email !== "habib@gmail.com") {
+        event.currentTarget.reset();
+
+        toast({
+          title: "Registration Successful!",
+        });
+
+        setTimeout(() => {
+          router.push("/auth/login");
+        }, 1000);
+      } else {
         toast({
           title: "Email has been registered!",
           description: "Use another email or log in with this email",
@@ -39,15 +49,6 @@ export default function Page() {
             </ToastAction>
           ),
         });
-      } else {
-        event.currentTarget.reset();
-        toast({
-          title: "Registration Successful!",
-        });
-
-        setTimeout(() => {
-          router.push("/auth/login");
-        }, 1000);
       }
     } else {
       setIsPasswordSame(false);
@@ -90,9 +91,9 @@ export default function Page() {
             />
           </Label>
           <Label htmlFor="password">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5">
               Password
-              <span className="text-xs font-light text-foreground before:content-['*']">
+              <span className="text-[10px] font-light text-foreground before:content-['*']">
                 at least 6 characters!
               </span>
             </div>

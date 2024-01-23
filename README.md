@@ -12,13 +12,15 @@ Make simple notes, ez use and integrated, with Noted.<br>
 - [ ] Starred notes
 - [ ] Archive notes
 - [ ] Trash notes
-- [X] Layout options
+- [ ] Layout options
 - [ ] Account
 - [ ] Google login
 
 ### Tech Stacks
-- [Next](https://nextjs.org) v13.4.19
+- [Next](https://nextjs.org) v13.5.4
 - [React](https://react.dev) v18.2.0
-- [Tailwindcss](https://tailwindcss.com) v3.3.3
+- [Tailwindcss](https://tailwindcss.com) v3.4.1
 - [Prisma](https://prisma.io) v5.3.1
 - [Neon](https://neon.tech) for PostgreSQL
+
+> Develop by [hibatillah](https://github.com/hibatillah)
