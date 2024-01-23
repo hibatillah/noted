@@ -26,7 +26,7 @@ const config = {
         },
         background: "var(--background)",
         foreground: "var(--foreground)",
-        border: "var(--muted)",
+        border: "var(--card)",
         input: "var(--card)",
         ring: "hsl(var(--ring))",
         primary: {

@@ -1,4 +1,5 @@
 "use client";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -9,11 +10,17 @@ import React from "react";
 export default function Page() {
   const handleLogin = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    const data = new FormData(event.currentTarget);
+    const email = data.get("email");
+    const password = data.get("password");
+
+    
   };
 
   return (
     <>
-      <Header profile={false} back='/auth' />
+      <Header back='/auth' />
       <div className="my-auto">
         <h2>Sign Up</h2>
         <p className="mb-5">

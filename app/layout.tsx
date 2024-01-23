@@ -1,4 +1,5 @@
 import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "@/components/ui/toaster";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
@@ -13,27 +14,27 @@ export const metadata: Metadata = {
   description: "Simple note app",
   authors: {
     name: "Hibatillah",
-    url: "hibatillah.site",
+    url: "https://hibatillah.site",
   },
   colorScheme: "dark light",
 };
 
 export default function RootLayout({
-  children
+  children,
 }: {
   children: React.ReactNode;
 }) {
-  const role = true
+  const role = true;
 
   return (
     <html lang="en">
       <body className={poppins.className}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="dark"
           disableTransitionOnChange>
           {children}
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>
