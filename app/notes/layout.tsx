@@ -5,5 +5,9 @@ export const metadata: Metadata = {
 };
 
 export default function layout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+  return (
+    <div className="container h-screen flex flex-col">
+      <main>{children}</main>
+    </div>
+  );
 }

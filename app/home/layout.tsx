@@ -14,8 +14,8 @@ export default function Layout({
   const isAdmin = false;
 
   return (
-    <div className="container h-screen flex flex-col">
+    <main className="container min-h-screen flex flex-col">
       {isAdmin ? admin : user}
-    </div>
+    </main>
   );
 }

@@ -11,7 +11,7 @@ export default function Divider({
   return (
     <div className={cn("flex items-center gap-4", className)}>
       <Separator className="flex-1" />
-      <span className="flex-none text-foreground text-sm">{text}</span>
+      <p className="flex-none text-foreground text-sm">{text}</p>
       <Separator className="flex-1" />
     </div>
   );

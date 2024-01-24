@@ -1,16 +1,20 @@
 "use client";
+
 import ToggleThemes from "@/components/ToggleThemes";
 import { Button } from "@/components/ui/button";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { IoIosArrowBack } from "react-icons/io";
 
 export default function Header({ back }: { back?: string | boolean }) {
   const router = useRouter();
+  const pathname = usePathname()
+
+  const routeBack = pathname.split("/").slice(0, -1).join("/");
   const username = "M. Hibatillah Hasanin";
   const profile = true;
 
   return (
-    <div className="flex justify-between items-center">
+    <header className="flex justify-between items-center">
       <div className="flex items-center gap-2">
         {back ? (
           <Button
@@ -37,6 +41,6 @@ export default function Header({ back }: { back?: string | boolean }) {
           </Button>
         ) : null}
       </div>
-    </div>
+    </header>
   );
 }

@@ -12,7 +12,6 @@ model users {
   email     String    @unique
   username  String    @unique
   createdAt DateTime  @default(now())
-  layout    String    @default("row")
   password  String?
   profile   String?
   notes     notes[]
@@ -42,16 +41,18 @@ model folders {
   updatedAt DateTime @updatedAt
   author    users    @relation(fields: [authorId], references: [id])
   authorId  String
+  icon      String   @default("📂")
   notes     notes[]
 }
 
 model labels {
   id        String   @id @default(uuid())
   name      String
-  color     String?  @default("blue")
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   author    users    @relation(fields: [authorId], references: [id])
   authorId  String
+  color     String   @default("primary")
+  icon      String   @default("●")
   notes     notes[]
 }

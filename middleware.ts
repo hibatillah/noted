@@ -11,6 +11,7 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
+    "/api/:path*",
     "/home/:path*",
     "/notes/:path*",
     "/profile/:path*",
