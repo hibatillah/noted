@@ -16,7 +16,17 @@ export const metadata: Metadata = {
     name: "Hibatillah",
     url: "https://hibatillah.site",
   },
+  applicationName: "Noted",
+  themeColor: "#202123",
   colorScheme: "dark light",
+  keywords: ["note", "app", "simple", "modern", "minimalist"],
+  openGraph: {
+    type: "website",
+    url: "https://noted.up.railway.app",
+    title: "Noted",
+    description: "Simple note app",
+    siteName: "Noted",
+  },
 };
 
 export default function RootLayout({

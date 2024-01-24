@@ -1,5 +1,4 @@
 export type Menu = {
-  userId: string;
   title: string;
   href: string;
   amount: number;

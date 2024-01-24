@@ -9,14 +9,14 @@ export default function Loading() {
       </div>
       <div className="py-5 space-y-5">
         <Skeleton className="w-full h-10" />
-        <Skeleton className="w-full p-3 space-y-2">
+        <Skeleton className="w-full p-3 space-y-3">
           <Skeleton className="w-44 h-6 bg-neutral-700" />
           <Skeleton className="w-48 h-6 bg-neutral-700" />
           <Skeleton className="w-52 h-6 bg-neutral-700" />
         </Skeleton>
         <div>
           <Skeleton className="mb-2 w-24 h-4" />
-          <Skeleton className="w-full p-3 space-y-2">
+          <Skeleton className="w-full p-3 space-y-3">
             <Skeleton className="w-44 h-6 bg-neutral-700" />
             <Skeleton className="w-48 h-6 bg-neutral-700" />
             <Skeleton className="w-52 h-6 bg-neutral-700" />
@@ -24,7 +24,7 @@ export default function Loading() {
         </div>
         <div>
           <Skeleton className="mb-2 w-24 h-4" />
-          <Skeleton className="w-full p-3 space-y-2">
+          <Skeleton className="w-full p-3 space-y-3">
             <Skeleton className="w-44 h-6 bg-neutral-700" />
             <Skeleton className="w-48 h-6 bg-neutral-700" />
             <Skeleton className="w-52 h-6 bg-neutral-700" />
