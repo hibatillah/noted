@@ -4,11 +4,11 @@
 
 @layer base {
   :root {
-    --background: #f3f3f3;
+    --background: #fff;
     --foreground: #545454;
     --color-title: #202123;
 
-    --card: #fff;
+    --card: #EBEBEA;
     --primary: theme(colors.blue.500);
 
     --muted: 220 14.3% 95.9%;

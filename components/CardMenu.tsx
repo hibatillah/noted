@@ -38,8 +38,8 @@ export default function CardMenu({
         <>
           <Link
             key={item.id}
-            href={item.href || routeMenu(item.id)}
-            className="px-3 py-2.5 flex items-center rounded-md hover:bg-background dark:hover:bg-neutral-800 cursor-pointer">
+            href={item.href || routeMenu(item.title)}
+            className="px-3 py-2.5 flex items-center rounded-md hover:bg-neutral-200 dark:hover:bg-neutral-800 cursor-pointer">
             <span
               className={cn(
                 "w-5 object-contain text-center text-primary",
@@ -52,13 +52,13 @@ export default function CardMenu({
               {item.amount}
             </span>
           </Link>
-          <Separator className="w-[99%] my-1 mx-auto bg-background dark:bg-neutral-700 last:hidden" />
+          <Separator className="w-[99%] my-1 mx-auto bg-neutral-300 dark:bg-neutral-700 last:hidden" />
         </>
       ))}
       {isMany && (
         <Link
           href={type === "folders" ? "/notes/folders" : "/notes/labels"}
-          className="px-3 py-1.5 text-sm text-foreground font-light flex items-center gap-1 hover:gap-2.5 rounded-md hover:bg-background dark:hover:bg-neutral-800 cursor-pointer transition-all ease-out group">
+          className="px-3 py-1.5 text-sm text-foreground font-light flex items-center gap-1 hover:gap-2.5 rounded-md hover:bg-neutral-200 dark:hover:bg-neutral-800 cursor-pointer transition-all ease-out group">
           See more <IoIosArrowRoundForward size={18} />
         </Link>
       )}

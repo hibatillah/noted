@@ -1,5 +1,11 @@
-import React from "react";
+"use client";
+
+import NotesLayout from "@/components/NotesLayout";
+import { useSearchParams } from "next/navigation";
 
 export default function Page() {
-  return <div>Trash</div>;
+  const searchParams = useSearchParams();
+  const search = searchParams.get("search");
+
+  return <NotesLayout title="Trash" notes={[]} />;
 }

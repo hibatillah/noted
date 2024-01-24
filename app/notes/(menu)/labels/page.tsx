@@ -1,14 +1,11 @@
-"use client"
+"use client";
 
+import NotesLayout from "@/components/NotesLayout";
 import { useSearchParams } from "next/navigation";
 
 export default function Page() {
   const searchParams = useSearchParams();
-  const folder = searchParams.get("name");
+  const search = searchParams.get("search");
 
-  return (
-    <div>
-      Labels {folder}
-    </div>
-  );
+  return <NotesLayout title="Labels" notes={[]} />;
 }

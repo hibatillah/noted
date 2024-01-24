@@ -15,7 +15,11 @@ export default function SearchBox() {
     if (search.value !== "") {
       const query = search.value.split(" ").join("+");
       router.push(`${pathname}?search=${query}`);
+    } else {
+      const path = pathname.split("?")[0];
+      router.push(path)
     }
+    router.refresh()
   };
 
   return (
