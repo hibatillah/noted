@@ -16,7 +16,7 @@ const mainMenu: Menu[] = [
     href: "/notes",
     amount: 0,
     color: "text-primary",
-    icon: <HiOutlineDocumentDuplicate size={20} />,
+    icon: <HiOutlineDocumentDuplicate size={18} className="stroke-2" />,
   },
   {
     id: "2",
@@ -24,7 +24,7 @@ const mainMenu: Menu[] = [
     href: "/notes/starred",
     amount: 0,
     color: "text-status-yellow",
-    icon: <FaRegStar size={20} />,
+    icon: <FaRegStar size={18} className="stroke-2" />,
   },
   {
     id: "3",
@@ -32,7 +32,7 @@ const mainMenu: Menu[] = [
     href: "/notes/archive",
     amount: 0,
     color: "text-status-green",
-    icon: <BsArchive size={20} />,
+    icon: <BsArchive size={18} className="stroke-1 dark:stroke-[0.5]" />,
   },
   {
     id: "4",
@@ -40,7 +40,7 @@ const mainMenu: Menu[] = [
     href: "/notes/trash",
     amount: 0,
     color: "text-status-red",
-    icon: <LuTrash2 size={20} />,
+    icon: <LuTrash2 size={18} className="stroke-2" />,
   },
 ];
 

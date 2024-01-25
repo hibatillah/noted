@@ -8,11 +8,11 @@ Make simple notes, ez use and integrated, with Noted.<br>
 
 ### Features
 - [ ] Folder & labels notes
-- [ ] Searching notes
+- [X] Searching notes
 - [ ] Starred notes
 - [ ] Archive notes
 - [ ] Trash notes
-- [ ] Layout options
+- [X] Layout options
 - [ ] Account
 - [ ] Google login
 

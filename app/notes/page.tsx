@@ -5,7 +5,6 @@ import NotesLayout from "@/components/NotesLayout";
 import SearchBox from "@/components/SearchBox";
 import { Note } from "@/lib/types";
 import { useSearchParams } from "next/navigation";
-import React from "react";
 
 const notes: Note[] = [
   {
@@ -55,20 +54,13 @@ const notes: Note[] = [
 
 export default function Page() {
   const searchParams = useSearchParams();
-  const search = searchParams.get("search");
-
-  const filteredNotes =
-    search !== null
-      ? notes.filter((note) =>
-          note.title.toLowerCase().includes(search.toLowerCase())
-        )
-      : notes;
+  const currentSearch = searchParams.get("search");
 
   return (
     <div className="space-y-5">
       <Header back="/home" />
       <SearchBox />
-      <NotesLayout title="All Notes" notes={filteredNotes} />
+      <NotesLayout title="All Notes" notes={notes} search={currentSearch} />
     </div>
   );
 }

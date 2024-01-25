@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 
 export default function Page() {
   const searchParams = useSearchParams();
-  const search = searchParams.get("search");
+  const currentSearch = searchParams.get("search");
 
-  return <NotesLayout title="Archive" notes={[]} />;
+  return <NotesLayout title="Archive" notes={[]} search={currentSearch} />;
 }
