@@ -1,11 +1,10 @@
 import CardMenu from "@/components/CardMenu";
+import DialogCreate from "@/components/DialogCreate";
 import Header from "@/components/Header";
 import SearchBox from "@/components/SearchBox";
 import { Menu } from "@/lib/types";
-import Link from "next/link";
 import { BsArchive } from "react-icons/bs";
 import { FaRegStar } from "react-icons/fa";
-import { FiPlus } from "react-icons/fi";
 import { HiOutlineDocumentDuplicate } from "react-icons/hi";
 import { LuTrash2 } from "react-icons/lu";
 
@@ -97,22 +96,14 @@ export default function Page() {
         <div>
           <div className="mb-1 flex items-center justify-between text-title">
             <h3>Folders</h3>
-            <Link
-              href="/folders/create"
-              className="px-2 py-1.5 rounded-md hover:bg-card">
-              <FiPlus />
-            </Link>
+            <DialogCreate type="folder" />
           </div>
           <CardMenu menu={folders} type="folders" />
         </div>
         <div>
           <div className="mb-1 flex items-center justify-between text-title">
             <h3>Labels</h3>
-            <Link
-              href="/labels/create"
-              className="px-2 py-1.5 rounded-md hover:bg-card">
-              <FiPlus />
-            </Link>
+            <DialogCreate type="label" />
           </div>
           <CardMenu menu={labels} type="labels" />
         </div>
