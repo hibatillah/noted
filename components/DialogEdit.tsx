@@ -20,20 +20,14 @@ import {
 } from "@/components/ui/tooltip";
 import { useEffect, useState } from "react";
 import { FaRegFolderClosed } from "react-icons/fa6";
-import { FiPlus } from "react-icons/fi";
+import { MdOutlineModeEdit } from "react-icons/md";
 import { TbColorSwatch } from "react-icons/tb";
 
-export default function DialogCreate({
-  type,
-  trigger = "button",
-}: {
-  type: "folder" | "label";
-  trigger?: "button" | "link";
-}) {
+export default function DialogEdit({ type }: { type?: string }) {
   const [isFormFilled, setIsFormFilled] = useState(true);
   const [inputField, setInputField] = useState("");
 
-  const handleCreate = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleEdit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const name = event.currentTarget.name;
 
@@ -46,44 +40,28 @@ export default function DialogCreate({
 
   return (
     <Dialog>
-      {trigger === "button" ? (
-        <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <DialogTrigger asChild>
-                <button
-                  autoFocus={false}
-                  className="px-2 py-1.5 rounded-md hover:bg-card cursor-pointer">
-                  <FiPlus />
-                </button>
-              </DialogTrigger>
-            </TooltipTrigger>
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <DialogTrigger asChild>
+              <Button size="icon" variant="ghost">
+                <MdOutlineModeEdit size={20} />
+              </Button>
+            </DialogTrigger>
+          </TooltipTrigger>
+          
+          <TooltipContent side="bottom">
+            <p>Edit {type}</p>
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
 
-            <TooltipContent
-              align={trigger === "button" ? "end" : "center"}
-              side="bottom">
-              <p>Create {type}</p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-      ) : (
-        <DialogTrigger asChild>
-          <button
-            autoFocus={false}
-            className="flex items-center justify-center gap-1 text-title group *:transition-all *:ease-out">
-            <span className="translate-x-2 group-hover:-translate-x-0">
-              Create one
-            </span>
-            <FiPlus className="-translate-x-2 invisible opacity-0 group-hover:translate-x-0 group-hover:visible group-hover:opacity-100" />
-          </button>
-        </DialogTrigger>
-      )}
       <DialogContent className="space-y-5 rounded-lg backdrop:blur-3xl">
         <DialogHeader className="flex justify-between items-start">
-          <DialogTitle className="capitalize">Create {type}</DialogTitle>
+          <DialogTitle className="capitalize">Edit {type}</DialogTitle>
         </DialogHeader>
 
-        <form onSubmit={handleCreate} className="space-y-4">
+        <form onSubmit={handleEdit} className="space-y-4">
           <div className="flex items-center gap-3">
             <TooltipProvider>
               <Tooltip>
@@ -92,7 +70,7 @@ export default function DialogCreate({
                     size="icon"
                     variant="secondary"
                     className="grow-0 focus-within:bg-background focus-within:ring-2 focus-within:ring-primary">
-                    {type === "folder" ? (
+                    {type === "folders" ? (
                       <FaRegFolderClosed />
                     ) : (
                       <TbColorSwatch />
@@ -110,7 +88,7 @@ export default function DialogCreate({
                 type="text"
                 id="name"
                 name="name"
-                placeholder={`Input your ${type} name`}
+                placeholder={`Update your ${type} name`}
                 onChange={(event) => setInputField(event.target.value)}
                 autoComplete="off"
                 autoFocus
@@ -126,7 +104,7 @@ export default function DialogCreate({
                 variant="default"
                 disabled={isFormFilled}
                 className="min-w-[30%]">
-                Create
+                Update
               </Button>
             </DialogClose>
           </DialogFooter>

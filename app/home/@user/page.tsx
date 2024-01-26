@@ -1,4 +1,4 @@
-import CardMenu from "@/components/CardMenu";
+import CardMenu from "@/components/Menu";
 import DialogCreate from "@/components/DialogCreate";
 import Header from "@/components/Header";
 import SearchBox from "@/components/SearchBox";

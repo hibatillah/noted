@@ -15,7 +15,13 @@ export default function Page({ params }: { params: { name: string } }) {
     <div className="space-y-5">
       <Header back="/notes/folders" />
       <SearchBox />
-      <NotesLayout title={folderName} notes={[]} search={currentSearch} />
+      <NotesLayout
+        title={folderName}
+        notes={[]}
+        search={currentSearch}
+        type="folders"
+        options
+      />
     </div>
   );
 }
