@@ -1,4 +1,4 @@
-import CardMenu from "@/components/Menu";
+import MenuCard from "@/components/Menu";
 import DialogCreate from "@/components/DialogCreate";
 import Header from "@/components/Header";
 import SearchBox from "@/components/SearchBox";
@@ -52,18 +52,19 @@ const folders: Menu[] = [
   },
   {
     id: "2",
-    title: "Personal 1",
+    title: "Personal",
     amount: 0,
   },
   {
     id: "3",
-    title: "Personal 2 ",
+    title: "Personal",
     amount: 0,
   },
   {
     id: "4",
-    title: "Personal 3",
+    title: "Hobby",
     amount: 0,
+    icon: "💻"
   },
   {
     id: "5",
@@ -92,20 +93,20 @@ export default function Page() {
       <Header />
       <div className="h-full py-5 space-y-5">
         <SearchBox />
-        <CardMenu menu={mainMenu} />
+        <MenuCard menu={mainMenu} />
         <div>
           <div className="mb-1 flex items-center justify-between text-title">
             <h3>Folders</h3>
             <DialogCreate type="folder" />
           </div>
-          <CardMenu menu={folders} type="folders" />
+          <MenuCard menu={folders} type="folders" />
         </div>
         <div>
           <div className="mb-1 flex items-center justify-between text-title">
             <h3>Labels</h3>
             <DialogCreate type="label" />
           </div>
-          <CardMenu menu={labels} type="labels" />
+          <MenuCard menu={labels} type="labels" />
         </div>
       </div>
     </>

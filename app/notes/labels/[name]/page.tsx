@@ -1,7 +1,7 @@
 "use client";
 
 import Header from "@/components/Header";
-import NotesLayout from "@/components/NotesLayout";
+import LayoutNotes from "@/components/LayoutNotes";
 import SearchBox from "@/components/SearchBox";
 import { useSearchParams } from "next/navigation";
 
@@ -15,7 +15,7 @@ export default function Page({ params }: { params: { name: string } }) {
     <div className="space-y-5">
       <Header back="/notes/labels" />
       <SearchBox />
-      <NotesLayout
+      <LayoutNotes
         title={labelName}
         notes={[]}
         search={currentSearch}

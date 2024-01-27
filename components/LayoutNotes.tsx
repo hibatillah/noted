@@ -1,13 +1,8 @@
+import CardNote from "@/components/CardNote";
 import DialogCreate from "@/components/DialogCreate";
 import DialogDelete from "@/components/DialogDelete";
 import DialogEdit from "@/components/DialogEdit";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import {
   Tooltip,
   TooltipContent,
@@ -23,59 +18,7 @@ import { FiPlus } from "react-icons/fi";
 import { HiMenu, HiViewGrid } from "react-icons/hi";
 import { TbNotesOff } from "react-icons/tb";
 
-const CardNote = ({ data, isGrid }: { data: Note; isGrid: boolean }) => {
-  const { id, title, content, updatedAt } = data;
-  const dateFormatter = new Intl.DateTimeFormat("en", { month: "short" });
-
-  const getDate = updatedAt.toLocaleDateString().split("/")[1];
-  const updatedDate = `${dateFormatter.format(updatedAt)} ${getDate}`;
-  const noteTitle = title.split(" ").join("-").toLowerCase();
-
-  return (
-    <Link href={`/notes/${noteTitle}?id=${id}`}>
-      <Card
-        className={cn({
-          "h-[100px]": !isGrid,
-          "h-40": isGrid,
-        })}>
-        <CardHeader
-          className={cn("mb-2", {
-            "flex justify-between items-start": !isGrid,
-            "block space-y-1": isGrid,
-          })}>
-          <CardTitle className="line-clamp-1">
-            {title || (
-              <span className="text-neutral-400 dark:text-neutral-500">
-                Untitled
-              </span>
-            )}
-          </CardTitle>
-
-          <div
-            className={cn("flex-none text-xs text-foreground", {
-              hidden: !title,
-            })}>
-            {updatedDate}
-          </div>
-        </CardHeader>
-
-        <CardDescription
-          className={cn({
-            "line-clamp-4": isGrid,
-            "line-clamp-2": !isGrid,
-          })}>
-          {content || (
-            <span className="text-neutral-400 dark:text-neutral-500">
-              Write something here...
-            </span>
-          )}
-        </CardDescription>
-      </Card>
-    </Link>
-  );
-};
-
-export default function NotesLayout({
+export default function LayoutNotes({
   title,
   notes,
   search,
@@ -138,15 +81,18 @@ export default function NotesLayout({
           "grid grid-cols-2": isLayoutGrid,
           "flex flex-col": !isLayoutGrid,
         })}>
-        {notes.length !== 0 ? (
+        {notes?.length !== 0 ? (
           filteredNotes?.map((note) => (
             <CardNote key={note.id} data={note} isGrid={isLayoutGrid ?? true} />
           ))
         ) : (
           <div className="col-span-2 h-[50vh] flex flex-col justify-center items-center text-foreground">
-            <TbNotesOff size={100} className="text-neutral-700" />
-            <div className="text-lg mt-4">No {type.toLowerCase()} yet!</div>
-            {type !== "notes" ? (
+            <TbNotesOff
+              size={100}
+              className="text-neutral-300 dark:text-neutral-700"
+            />
+            <div className="text-lg mt-4">No notes yet!</div>
+            {type !== "notes" && !options ? (
               <DialogCreate
                 type={type === "folders" ? "folder" : "label"}
                 trigger="link"

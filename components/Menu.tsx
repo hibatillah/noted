@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { FiPlus } from "react-icons/fi";
 import { IoIosArrowRoundForward } from "react-icons/io";
-import MenuCard from "./MenuCard";
+import CardMenu from "@/components/CardMenu";
 
 const ManyItem = ({ type }: { type: string }) => {
   return (
@@ -19,7 +19,7 @@ const EmptyItem = ({ type }: { type: string }) => {
   return (
     <div className="text-center text-foreground text-sm space-y-0.5">
       <div>No {type.toLowerCase()} yet!</div>
-      
+
       <Link
         className="flex items-center justify-center gap-1 text-title group *:transition-all *:ease-out"
         href={
@@ -34,7 +34,7 @@ const EmptyItem = ({ type }: { type: string }) => {
   );
 };
 
-export default function CardMenu({
+export default function Menu({
   menu,
   type = "menu",
 }: {
@@ -51,7 +51,7 @@ export default function CardMenu({
         "h-24 grid place-items-center": isEmpty,
       })}>
       {filteredMenu?.map((item) => (
-        <MenuCard key={item.id} menu={item} type={type} />
+        <CardMenu key={item.id} menu={item} type={type} />
       ))}
       {isMany && <ManyItem type={type} />}
       {isEmpty && <EmptyItem type={type} />}

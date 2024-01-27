@@ -24,18 +24,19 @@ import { MdOutlineModeEdit } from "react-icons/md";
 import { TbColorSwatch } from "react-icons/tb";
 
 export default function DialogEdit({ type }: { type?: string }) {
-  const [isFormFilled, setIsFormFilled] = useState(true);
-  const [inputField, setInputField] = useState("");
+  const folderName = "Study";
+
+  const [isFormFilled, setIsFormFilled] = useState(false);
+  const [inputField, setInputField] = useState(folderName);
 
   const handleEdit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const name = event.currentTarget.name;
 
-    console.log(name.valueOf);
+    const name = event.currentTarget.editedName;
   };
 
   useEffect(() => {
-    inputField !== "" ? setIsFormFilled(false) : setIsFormFilled(true);
+    inputField !== "" ? setIsFormFilled(true) : setIsFormFilled(false);
   }, [inputField, isFormFilled]);
 
   return (
@@ -49,7 +50,7 @@ export default function DialogEdit({ type }: { type?: string }) {
               </Button>
             </DialogTrigger>
           </TooltipTrigger>
-          
+
           <TooltipContent side="bottom">
             <p>Edit {type}</p>
           </TooltipContent>
@@ -83,13 +84,14 @@ export default function DialogEdit({ type }: { type?: string }) {
               </Tooltip>
             </TooltipProvider>
 
-            <Label htmlFor="name" className="grow">
+            <Label htmlFor="editedName" className="grow">
               <Input
                 type="text"
-                id="name"
-                name="name"
+                id="editedName"
+                name="editedName"
                 placeholder={`Update your ${type} name`}
                 onChange={(event) => setInputField(event.target.value)}
+                value={inputField}
                 autoComplete="off"
                 autoFocus
                 required
@@ -102,7 +104,7 @@ export default function DialogEdit({ type }: { type?: string }) {
               <Button
                 type="submit"
                 variant="default"
-                disabled={isFormFilled}
+                disabled={!isFormFilled}
                 className="min-w-[30%]">
                 Update
               </Button>

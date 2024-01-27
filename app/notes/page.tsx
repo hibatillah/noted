@@ -1,7 +1,7 @@
 "use client";
 
 import Header from "@/components/Header";
-import NotesLayout from "@/components/NotesLayout";
+import LayoutNotes from "@/components/LayoutNotes";
 import SearchBox from "@/components/SearchBox";
 import { Note } from "@/lib/types";
 import { useSearchParams } from "next/navigation";
@@ -60,7 +60,7 @@ export default function Page() {
     <div className="space-y-5">
       <Header back="/home" />
       <SearchBox />
-      <NotesLayout title="All Notes" notes={notes} search={currentSearch} />
+      <LayoutNotes title="All Notes" notes={notes} search={currentSearch} />
     </div>
   );
 }

@@ -30,18 +30,20 @@ export default function DialogCreate({
   type: "folder" | "label";
   trigger?: "button" | "link";
 }) {
-  const [isFormFilled, setIsFormFilled] = useState(true);
+  const [isFormFilled, setIsFormFilled] = useState(false);
   const [inputField, setInputField] = useState("");
 
   const handleCreate = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const name = event.currentTarget.name;
+    setIsFormFilled(false)
+    setInputField("")
 
-    console.log(name.valueOf);
+    const name = event.currentTarget.newName;
+    console.log(name?.value);
   };
 
   useEffect(() => {
-    inputField !== "" ? setIsFormFilled(false) : setIsFormFilled(true);
+    inputField !== "" ? setIsFormFilled(true) : setIsFormFilled(false);
   }, [inputField, isFormFilled]);
 
   return (
@@ -105,11 +107,11 @@ export default function DialogCreate({
               </Tooltip>
             </TooltipProvider>
 
-            <Label htmlFor="name" className="grow">
+            <Label htmlFor="newName" className="grow">
               <Input
                 type="text"
-                id="name"
-                name="name"
+                id="newName"
+                name="newName"
                 placeholder={`Input your ${type} name`}
                 onChange={(event) => setInputField(event.target.value)}
                 autoComplete="off"
@@ -124,7 +126,7 @@ export default function DialogCreate({
               <Button
                 type="submit"
                 variant="default"
-                disabled={isFormFilled}
+                disabled={!isFormFilled}
                 className="min-w-[30%]">
                 Create
               </Button>

@@ -1,11 +1,11 @@
 "use client";
 
-import NotesLayout from "@/components/NotesLayout";
+import LayoutNotes from "@/components/LayoutNotes";
 import { useSearchParams } from "next/navigation";
 
 export default function Page() {
   const searchParams = useSearchParams();
   const currentSearch = searchParams.get("search");
 
-  return <NotesLayout title="Starred" notes={[]} search={currentSearch} />;
+  return <LayoutNotes title="Starred" notes={[]} search={currentSearch} />;
 }
