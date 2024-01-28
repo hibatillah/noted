@@ -1,11 +1,7 @@
-"use client";
-
 import Header from "@/components/Header";
 import LayoutFolders from "@/components/LayoutFolders";
-import LayoutNotes from "@/components/LayoutNotes";
 import SearchBox from "@/components/SearchBox";
 import { Menu } from "@/lib/types";
-import { useSearchParams } from "next/navigation";
 
 const labels: Menu[] = [
   {
@@ -22,14 +18,11 @@ const labels: Menu[] = [
 ];
 
 export default function Page() {
-  const searchParams = useSearchParams();
-  const currentSearch = searchParams.get("search");
-
   return (
     <div className="space-y-5">
       <Header back="/home" />
       <SearchBox />
-      <LayoutFolders folders={labels} search={currentSearch} type="labels" />
+      <LayoutFolders folders={labels} type="labels" />
     </div>
   );
 }

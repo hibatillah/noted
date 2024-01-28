@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import MenuCard from "@/components/Menu";
 import SearchBox from "@/components/SearchBox";
 import { Menu } from "@/lib/types";
-import { useSearchParams } from "next/navigation";
+import Link from "next/link";
 import { BsArchive } from "react-icons/bs";
 import { FaRegStar } from "react-icons/fa";
 import { HiOutlineDocumentDuplicate } from "react-icons/hi";
@@ -89,14 +89,13 @@ const labels: Menu[] = [
 ];
 
 export default function Page() {
-  const searchParams = useSearchParams();
-  const currentSearch = searchParams.get("search");
-
   return (
     <>
       <Header />
       <div className="h-full py-5 space-y-5">
-        <SearchBox />
+        <Link href="/home/search">
+          <SearchBox />
+        </Link>
         <MenuCard menu={mainMenu} />
         <div>
           <div className="mb-1 flex items-center justify-between text-title">

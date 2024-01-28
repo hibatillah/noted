@@ -1,3 +1,5 @@
+"use client";
+
 import CardNote from "@/components/CardNote";
 import DialogCreate from "@/components/DialogCreate";
 import DialogDelete from "@/components/DialogDelete";
@@ -13,6 +15,7 @@ import { getStorageLayout, swapStorageLayout } from "@/lib/layout";
 import { Note } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import React from "react";
 import { FiPlus } from "react-icons/fi";
 import { HiMenu, HiViewGrid } from "react-icons/hi";
@@ -21,16 +24,17 @@ import { TbNotesOff } from "react-icons/tb";
 export default function LayoutNotes({
   title,
   notes,
-  search,
   type = "notes",
   options = false,
 }: {
   title: string;
   notes: Note[];
-  search: string | null;
   type?: "notes" | "folders" | "labels";
   options?: boolean;
 }) {
+  const searchParams = useSearchParams();
+  const search = searchParams.get("search");
+
   const [isLayoutGrid, setIsLayoutGrid] = React.useState(getStorageLayout());
 
   const changeLayout = () => {
@@ -86,7 +90,7 @@ export default function LayoutNotes({
             <CardNote key={note.id} data={note} isGrid={isLayoutGrid ?? true} />
           ))
         ) : (
-          <div className="col-span-2 h-[50vh] flex flex-col justify-center items-center text-foreground">
+          <div className="col-span-2 h-[70vh] flex flex-col justify-center items-center text-foreground">
             <TbNotesOff
               size={100}
               className="text-neutral-300 dark:text-neutral-700"

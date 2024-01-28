@@ -1,10 +1,7 @@
-"use client";
-
 import Header from "@/components/Header";
 import LayoutNotes from "@/components/LayoutNotes";
 import SearchBox from "@/components/SearchBox";
 import { Note } from "@/lib/types";
-import { useSearchParams } from "next/navigation";
 
 const notes: Note[] = [
   {
@@ -53,14 +50,11 @@ const notes: Note[] = [
 ];
 
 export default function Page() {
-  const searchParams = useSearchParams();
-  const currentSearch = searchParams.get("search");
-
   return (
     <div className="space-y-5">
       <Header back="/home" />
       <SearchBox />
-      <LayoutNotes title="All Notes" notes={notes} search={currentSearch} />
+      <LayoutNotes title="All Notes" notes={notes} />
     </div>
   );
 }

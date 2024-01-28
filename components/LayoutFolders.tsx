@@ -1,17 +1,23 @@
+"use client";
+
 import CardMenu from "@/components/CardMenu";
 import DialogCreate from "@/components/DialogCreate";
 import { Menu } from "@/lib/types";
+import { useSearchParams } from "next/navigation";
 import { FiFolderMinus } from "react-icons/fi";
 
 export default function LayoutFolders({
   folders,
-  search,
   type,
+  hideIcon = false,
 }: {
   folders: Menu[];
-  search: string | null;
   type: "folders" | "labels";
+  hideIcon?: boolean;
 }) {
+  const searchParams = useSearchParams();
+  const search = searchParams.get("search");
+
   const filteredFolders =
     search !== null
       ? folders?.filter((folder) =>
@@ -23,7 +29,9 @@ export default function LayoutFolders({
     <div className="space-y-2">
       <div className="mb-1 flex items-center justify-between text-title">
         <h2 className="capitalize">{type}</h2>
-        <DialogCreate type={type === "folders" ? "folder" : "label"} />
+        {!hideIcon && (
+          <DialogCreate type={type === "folders" ? "folder" : "label"} />
+        )}
       </div>
 
       <div className="flex flex-col gap-3">
@@ -32,7 +40,7 @@ export default function LayoutFolders({
             <CardMenu key={folder.id} menu={folder} type={type} />
           ))
         ) : (
-          <div className="col-span-2 h-[50vh] flex flex-col justify-center items-center text-foreground">
+          <div className="col-span-2 h-[70vh] flex flex-col justify-center items-center text-foreground">
             <FiFolderMinus
               size={100}
               className="text-neutral-300 dark:text-neutral-700"

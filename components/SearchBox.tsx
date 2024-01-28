@@ -4,7 +4,7 @@ import { usePathname, useRouter } from "next/navigation";
 import React from "react";
 import { IoSearch } from "react-icons/io5";
 
-export default function SearchBox() {
+export default function SearchBox({ focus = false }: { focus?: boolean }) {
   const router = useRouter();
   const pathname = usePathname();
 
@@ -39,6 +39,7 @@ export default function SearchBox() {
             className="bg-transparent text-title ms-3 w-full focus:outline-none"
             autoComplete="off"
             autoCorrect="off"
+            autoFocus={focus}
           />
         </label>
       </form>

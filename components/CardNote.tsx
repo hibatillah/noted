@@ -25,8 +25,8 @@ export default function CardNote({
   return (
     <Link href={`/notes/${noteTitle}?id=${id}`}>
       <Card
-        className={cn({
-          "h-[105px]": !isGrid,
+        className={cn("col-span-1", {
+          "h-28": !isGrid,
           "h-40": isGrid,
         })}>
         <CardHeader
