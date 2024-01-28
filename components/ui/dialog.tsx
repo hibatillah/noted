@@ -55,12 +55,12 @@ const DialogHeader = ({
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
     className={cn(
-      "flex text-center sm:text-left",
+      "relative flex text-center sm:text-left",
       className
     )}
     {...props}>
     {children}
-    <DialogPrimitive.Close autoFocus={false} className="rounded-sm opacity-70 ring-offset-background transition-opacity hover:bg-background hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
+    <DialogPrimitive.Close autoFocus={false} className="absolute -top-1 right-0 rounded-sm opacity-70 ring-offset-background transition-opacity hover:bg-background hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
       <X className="h-4 w-4" />
       <span className="sr-only">Close</span>
     </DialogPrimitive.Close>

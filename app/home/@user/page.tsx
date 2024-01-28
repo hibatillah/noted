@@ -1,8 +1,9 @@
-import MenuCard from "@/components/Menu";
 import DialogCreate from "@/components/DialogCreate";
 import Header from "@/components/Header";
+import MenuCard from "@/components/Menu";
 import SearchBox from "@/components/SearchBox";
 import { Menu } from "@/lib/types";
+import { useSearchParams } from "next/navigation";
 import { BsArchive } from "react-icons/bs";
 import { FaRegStar } from "react-icons/fa";
 import { HiOutlineDocumentDuplicate } from "react-icons/hi";
@@ -64,7 +65,7 @@ const folders: Menu[] = [
     id: "4",
     title: "Hobby",
     amount: 0,
-    icon: "💻"
+    icon: "💻",
   },
   {
     id: "5",
@@ -88,6 +89,9 @@ const labels: Menu[] = [
 ];
 
 export default function Page() {
+  const searchParams = useSearchParams();
+  const currentSearch = searchParams.get("search");
+
   return (
     <>
       <Header />

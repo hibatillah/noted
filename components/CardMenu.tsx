@@ -41,7 +41,7 @@ export default function CardMenu({
         <span className="me-5 flex-none text-sm text-foreground">{amount}</span>
       </Link>
       {separator && (
-        <Separator className="w-[99%] my-1 mx-auto bg-neutral-300 dark:bg-neutral-700 last:hidden" />
+        <Separator className="w-[99%] my-0 mx-auto bg-neutral-300 dark:bg-neutral-700 last:hidden" />
       )}
     </>
   );

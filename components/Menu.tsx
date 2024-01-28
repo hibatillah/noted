@@ -47,11 +47,11 @@ export default function Menu({
 
   return (
     <nav
-      className={cn("bg-card rounded-lg p-1 space-y-1", {
+      className={cn("bg-card rounded-lg p-1 space-y-px", {
         "h-24 grid place-items-center": isEmpty,
       })}>
       {filteredMenu?.map((item) => (
-        <CardMenu key={item.id} menu={item} type={type} />
+        <CardMenu key={item.id} menu={item} type={type} separator />
       ))}
       {isMany && <ManyItem type={type} />}
       {isEmpty && <EmptyItem type={type} />}
