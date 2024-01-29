@@ -2,89 +2,124 @@ import DialogCreate from "@/components/DialogCreate";
 import Header from "@/components/Header";
 import MenuCard from "@/components/Menu";
 import SearchBox from "@/components/SearchBox";
-import { Menu } from "@/lib/types";
+import { Folder, Label, Menu } from "@/lib/types";
 import Link from "next/link";
 import { BsArchive } from "react-icons/bs";
 import { FaRegStar } from "react-icons/fa";
 import { HiOutlineDocumentDuplicate } from "react-icons/hi";
 import { LuTrash2 } from "react-icons/lu";
 
+const username = "Habib";
+const userId = "1";
+
 const mainMenu: Menu[] = [
   {
     id: "1",
-    title: "All Notes",
-    href: "/notes",
+    name: "All Notes",
     amount: 0,
     color: "text-primary",
     icon: <HiOutlineDocumentDuplicate size={18} className="stroke-2" />,
+    updatedAt: new Date(),
+    notes: ["", ""]
   },
   {
     id: "2",
-    title: "Stared",
-    href: "/notes/starred",
+    name: "Starred",
     amount: 0,
     color: "text-status-yellow",
     icon: <FaRegStar size={18} className="stroke-2" />,
+    updatedAt: new Date(),
+    notes: ["", ""]
   },
   {
     id: "3",
-    title: "Archive",
-    href: "/notes/archive",
+    name: "Archive",
     amount: 0,
     color: "text-status-green",
     icon: <BsArchive size={18} className="stroke-1 dark:stroke-[0.5]" />,
+    updatedAt: new Date(),
+    notes: ["", ""]
   },
   {
     id: "4",
-    title: "Trash",
-    href: "/notes/trash",
+    name: "Trash",
     amount: 0,
     color: "text-status-red",
     icon: <LuTrash2 size={18} className="stroke-2" />,
+    updatedAt: new Date(),
+    notes: ["", ""]
   },
 ];
 
-const folders: Menu[] = [
+const folders: Folder[] = [
   {
     id: "1",
-    title: "Study",
-    amount: 0,
+    name: "Study",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    author: username,
+    authorId: userId,
+    notes: [""],
     icon: "🏫",
   },
   {
     id: "2",
-    title: "Personal",
-    amount: 0,
+    name: "Personal",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    author: username,
+    authorId: userId,
+    notes: [""],
   },
   {
     id: "3",
-    title: "Personal",
-    amount: 0,
+    name: "Personal",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    author: username,
+    authorId: userId,
+    notes: [""],
   },
   {
     id: "4",
-    title: "Hobby",
-    amount: 0,
+    name: "Hobby",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    author: username,
+    authorId: userId,
+    notes: [""],
     icon: "💻",
   },
   {
     id: "5",
-    title: "Personal 4",
-    amount: 0,
+    name: "Personal 4",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    author: username,
+    authorId: userId,
+    notes: [""],
   },
 ];
 
-const labels: Menu[] = [
+const labels: Label[] = [
   {
     id: "1",
-    title: "Important Meeting Asuransi",
-    amount: 0,
+    name: "Important Meeting Asuransi",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    author: username,
+    authorId: userId,
+    notes: [""],
     color: "text-status-red",
   },
   {
     id: "2",
-    title: "Personal",
-    amount: 0,
+    name: "Personal",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    author: username,
+    authorId: userId,
+    notes: [""],
   },
 ];
 

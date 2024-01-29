@@ -1,4 +1,4 @@
-import { Menu } from "@/lib/types";
+import { Folder, Label, Menu } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { FiPlus } from "react-icons/fi";
@@ -38,7 +38,7 @@ export default function Menu({
   menu,
   type = "menu",
 }: {
-  menu: Menu[];
+  menu: Menu[] | Folder[] | Label[];
   type?: "menu" | "folders" | "labels";
 }) {
   const filteredMenu = menu.slice(0, 4);
@@ -47,11 +47,11 @@ export default function Menu({
 
   return (
     <nav
-      className={cn("bg-card rounded-lg p-1 space-y-px", {
+      className={cn("bg-card rounded-lg p-1", {
         "h-24 grid place-items-center": isEmpty,
       })}>
       {filteredMenu?.map((item) => (
-        <CardMenu key={item.id} menu={item} type={type} separator />
+        <CardMenu key={item.id} data={item} type={type} separator />
       ))}
       {isMany && <ManyItem type={type} />}
       {isEmpty && <EmptyItem type={type} />}

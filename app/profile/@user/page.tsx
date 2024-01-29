@@ -7,16 +7,21 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "@/components/ui/use-toast";
+import { getInitials } from "@/lib/utils";
 import { useState } from "react";
 import { MdOutlineKey, MdOutlineModeEdit } from "react-icons/md";
 
 export default function Page() {
   const googleLogin = true;
+
   const [userData, setUserData] = useState({
-    username: "Hibatillah",
+    userId: "1313",
+    username: "M. Hibatillah Hasanin",
     email: "hibatillahhabib@gmail.com",
     bio: "Student",
   });
+
+  const initials = getInitials(userData.username);
 
   const updateProfile = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -36,7 +41,7 @@ export default function Page() {
         <div>
           <h2>Profile</h2>
           <div className="relative size-28 mx-auto rounded-full bg-primary grid place-items-center">
-            <div className="text-3xl text-white">MH</div>
+            <div className="text-3xl text-white">{initials}</div>
             <Button
               size="icon"
               variant="secondary"
@@ -53,6 +58,7 @@ export default function Page() {
               id="username"
               name="username"
               placeholder="Input your username"
+              spellCheck={false}
               value={userData.username}
               onChange={(e) =>
                 setUserData({ ...userData, username: e.target.value })
@@ -66,6 +72,7 @@ export default function Page() {
               id="email"
               name="email"
               placeholder="Input your email"
+              spellCheck={false}
               value={userData.email}
               onChange={(e) =>
                 setUserData({ ...userData, email: e.target.value })
@@ -100,8 +107,8 @@ export default function Page() {
               <MdOutlineKey size={20} className="text-status-yellow" />
               Reset Password
             </Button>
-            <DialogClear userId="1" />
-            <DialogLogout userId="1" />
+            <DialogClear userId={userData.userId} />
+            <DialogLogout userId={userData.userId} />
           </div>
         </div>
       </div>

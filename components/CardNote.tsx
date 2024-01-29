@@ -5,7 +5,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Note } from "@/lib/types";
-import { cn } from "@/lib/utils";
+import { cn, dateFormat } from "@/lib/utils";
 import Link from "next/link";
 
 export default function CardNote({
@@ -16,11 +16,8 @@ export default function CardNote({
   isGrid: boolean;
 }) {
   const { id, title, content, updatedAt } = data;
-  const dateFormatter = new Intl.DateTimeFormat("en", { month: "short" });
-
-  const getDate = updatedAt.toLocaleDateString().split("/")[1];
-  const updatedDate = `${dateFormatter.format(updatedAt)} ${getDate}`;
   const noteTitle = title.split(" ").join("-").toLowerCase();
+  const formattedDate = dateFormat(updatedAt);
 
   return (
     <Link href={`/notes/${noteTitle}?id=${id}`}>
@@ -46,7 +43,7 @@ export default function CardNote({
             className={cn("flex-none text-xs text-foreground", {
               hidden: !title,
             })}>
-            {updatedDate}
+            {formattedDate}
           </div>
         </CardHeader>
 

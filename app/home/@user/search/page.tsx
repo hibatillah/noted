@@ -5,51 +5,82 @@ import LayoutFolders from "@/components/LayoutFolders";
 import LayoutNotes from "@/components/LayoutNotes";
 import SearchBox from "@/components/SearchBox";
 import { Button } from "@/components/ui/button";
-import { Menu, Note } from "@/lib/types";
+import { Folder, Label, Note } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import React from "react";
 
-const folders: Menu[] = [
+const username = "Habib";
+const userId = "1";
+
+const folders: Folder[] = [
   {
     id: "1",
-    title: "Study",
-    amount: 0,
+    name: "Study",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    author: username,
+    authorId: userId,
+    notes: [""],
     icon: "🏫",
   },
   {
     id: "2",
-    title: "Personal",
-    amount: 0,
+    name: "Personal",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    author: username,
+    authorId: userId,
+    notes: [""],
   },
   {
     id: "3",
-    title: "Personal",
-    amount: 0,
+    name: "Personal",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    author: username,
+    authorId: userId,
+    notes: [""],
   },
   {
     id: "4",
-    title: "Hobby",
-    amount: 0,
+    name: "Hobby",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    author: username,
+    authorId: userId,
+    notes: [""],
     icon: "💻",
   },
   {
     id: "5",
-    title: "Personal 4",
-    amount: 0,
+    name: "Personal 4",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    author: username,
+    authorId: userId,
+    notes: [""],
   },
 ];
 
-const labels: Menu[] = [
+const labels: Label[] = [
   {
     id: "1",
-    title: "Important Meeting Asuransi",
-    amount: 0,
+    name: "Important Meeting Asuransi",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    author: username,
+    authorId: userId,
+    notes: [""],
     color: "text-status-red",
   },
   {
     id: "2",
-    title: "Personal",
-    amount: 0,
+    name: "Personal",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    author: username,
+    authorId: userId,
+    notes: [""],
   },
 ];
 
@@ -99,14 +130,14 @@ const notes: Note[] = [
   },
 ];
 
-export default function Page() {
-  type IsActive = {
-    folders: boolean;
-    labels: boolean;
-    notes: boolean;
-    [key: string]: boolean; // index signature
-  };
+type IsActive = {
+  folders: boolean;
+  labels: boolean;
+  notes: boolean;
+  [key: string]: boolean; // index signature
+};
 
+export default function Page() {
   const [warnLabel, setWarnLabel] = React.useState(false);
   const [isActive, setIsActive] = React.useState<IsActive>({
     folders: true,
@@ -123,7 +154,7 @@ export default function Page() {
       setWarnLabel(true);
       setTimeout(() => {
         setWarnLabel(false);
-      }, 3000);
+      }, 2000);
     }
   };
 

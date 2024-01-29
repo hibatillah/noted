@@ -2,6 +2,7 @@
 
 import ToggleThemes from "@/components/ToggleThemes";
 import { Button } from "@/components/ui/button";
+import { getInitials } from "@/lib/utils";
 import { usePathname, useRouter } from "next/navigation";
 import { IoIosArrowBack } from "react-icons/io";
 
@@ -9,10 +10,12 @@ export default function Header({ back }: { back?: string | boolean }) {
   const router = useRouter();
   const pathname = usePathname()
 
-  const routeBack = pathname.split("/").slice(0, -1).join("/");
-  const isProfilePage = pathname === "/profile";
   const username = "M. Hibatillah Hasanin";
   const profile = true;
+
+  const routeBack = pathname.split("/").slice(0, -1).join("/");
+  const isProfilePage = pathname === "/profile";
+  const initials = getInitials(username);
 
   return (
     <header className="flex justify-between items-center">
@@ -36,9 +39,8 @@ export default function Header({ back }: { back?: string | boolean }) {
           <Button
             size="icon"
             onClick={() => router.push("/profile")}
-            className="rounded-full bg-primary tracking-wide text-white">
-            {username.split(" ")[0].charAt(0).toUpperCase() +
-              username.split(" ")[1].charAt(0).toUpperCase()}
+            className="rounded-full bg-primary tracking-wide text-sm text-white">
+            {initials}
           </Button>
         ) : null}
       </div>

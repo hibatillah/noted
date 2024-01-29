@@ -2,18 +2,20 @@
 
 import CardMenu from "@/components/CardMenu";
 import DialogCreate from "@/components/DialogCreate";
-import { Menu } from "@/lib/types";
+import { Folder, Label } from "@/lib/types";
 import { useSearchParams } from "next/navigation";
 import { FiFolderMinus } from "react-icons/fi";
 
 export default function LayoutFolders({
   folders,
   type,
-  hideIcon = false,
+  hideIcon,
+  date
 }: {
-  folders: Menu[];
+  folders: Folder[] | Label[];
   type: "folders" | "labels";
   hideIcon?: boolean;
+  date?: boolean;
 }) {
   const searchParams = useSearchParams();
   const search = searchParams.get("search");
@@ -21,7 +23,7 @@ export default function LayoutFolders({
   const filteredFolders =
     search !== null
       ? folders?.filter((folder) =>
-          folder.title.toLowerCase().includes(search.toLowerCase())
+          folder.name.toLowerCase().includes(search.toLowerCase())
         )
       : folders;
 
@@ -37,7 +39,7 @@ export default function LayoutFolders({
       <div className="flex flex-col gap-3">
         {folders?.length !== 0 ? (
           filteredFolders?.map((folder) => (
-            <CardMenu key={folder.id} menu={folder} type={type} />
+            <CardMenu key={folder.id} data={folder} type={type} date={date} />
           ))
         ) : (
           <div className="col-span-2 h-[70vh] flex flex-col justify-center items-center text-foreground">

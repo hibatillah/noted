@@ -1,10 +1,11 @@
 export type Menu = {
   id: string;
-  title: string;
-  href?: string;
+  name: string;
   amount: number;
   color?: string;
   icon?: string | React.ReactNode;
+  updatedAt: Date;
+  notes: string[];
 };
 
 export type Note = {
@@ -29,7 +30,7 @@ export type Folder = {
   updatedAt: Date;
   author: string;
   authorId: string;
-  icon?: string | React.ReactNode;
+  icon?: string;
   notes: string[];
 };
 
@@ -41,6 +42,5 @@ export type Label = {
   author: string;
   authorId: string;
   color?: string;
-  icon?: string | React.ReactNode;
   notes: string[];
 };

@@ -1,35 +1,57 @@
 import Header from "@/components/Header";
 import LayoutFolders from "@/components/LayoutFolders";
 import SearchBox from "@/components/SearchBox";
-import { Menu } from "@/lib/types";
+import { Folder } from "@/lib/types";
 
-const folders: Menu[] = [
+const username = "Habib"
+const userId = "1"
+const folders: Folder[] = [
   {
     id: "1",
-    title: "Study",
-    amount: 0,
+    name: "Study",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    author: username,
+    authorId: userId,
+    notes: [""],
     icon: "🏫",
   },
   {
     id: "2",
-    title: "Personal",
-    amount: 0,
+    name: "Personal",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    author: username,
+    authorId: userId,
+    notes: [""],
   },
   {
     id: "3",
-    title: "Personal",
-    amount: 0,
+    name: "Personal",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    author: username,
+    authorId: userId,
+    notes: [""],
   },
   {
     id: "4",
-    title: "Hobby",
-    amount: 0,
+    name: "Hobby",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    author: username,
+    authorId: userId,
+    notes: [""],
     icon: "💻",
   },
   {
     id: "5",
-    title: "Personal 4",
-    amount: 0,
+    name: "Personal 4",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    author: username,
+    authorId: userId,
+    notes: [""],
   },
 ];
 
@@ -38,7 +60,7 @@ export default function Page() {
     <div className="space-y-5">
       <Header back="/home" />
       <SearchBox />
-      <LayoutFolders folders={folders} type="folders" />
+      <LayoutFolders folders={folders} type="folders" date />
     </div>
   );
 }
